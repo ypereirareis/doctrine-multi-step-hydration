@@ -1,5 +1,7 @@
 <?php
 
+require_once 'common.php';
+
 use Doctrine2StepHydration\User;
 
 /* @var $entityManager \Doctrine\ORM\EntityManager */
@@ -37,4 +39,5 @@ foreach ($users as $user) {
     $fetchedRecords += count($user->sessions);
 }
 
-var_dump('Fetched records: ', $fetchedRecords);
+echo sprintf('Fetched records: %d', $fetchedRecords)."\n";
+echo getMemoryUsage()."\n";

@@ -28,6 +28,6 @@ $entityManager = EntityManager::create(
     $configuration
 );
 
-$configuration->setSQLLogger(new EchoSQLLogger());
+$configuration->setSQLLogger(null);
 
 return $entityManager;

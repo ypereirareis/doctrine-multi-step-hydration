@@ -15,4 +15,16 @@ class User
 
     /** @ORM\ManyToMany(targetEntity=Session::class, cascade={"persist"}) */
     public $sessions = [];
+
+    /** @ORM\Column(name="name", type="string") **/
+    public $name;
+
+    /** @ORM\Column(name="description1", type="text") **/
+    public $description1;
+
+    /** @ORM\Column(name="description2", type="text") **/
+    public $description2;
+
+    /** @ORM\Column(name="description3", type="text") **/
+    public $description3;
 }

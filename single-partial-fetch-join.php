@@ -9,20 +9,26 @@ $entityManager = require __DIR__ . '/bootstrap.php';
 
 /* @var $users User[] */
 $users = $entityManager
-    ->getRepository(User::class)
-    ->findAll();
+    ->createQuery('
+        SELECT
+            partial u.{id}, a, s
+        FROM
+            ' . User::class . ' u
+        LEFT JOIN
+            u.socialAccounts a
+        LEFT JOIN
+            u.sessions s
+    ')
+    ->getResult();
 
 $fetchedRecords = 0;
 
 foreach ($users as $user) {
     $fetchedRecords += 1;
-    $accounts = $user->socialAccounts;
-    $sessions = $user->sessions;
 
-    $fetchedRecords += count($accounts);
-    $fetchedRecords += count($sessions);
+    $fetchedRecords += count($user->socialAccounts);
+    $fetchedRecords += count($user->sessions);
 }
-
 
 echo sprintf('Fetched records: %d', $fetchedRecords)."\n";
 echo getMemoryUsage()."\n";

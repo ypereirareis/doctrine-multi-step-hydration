@@ -30,6 +30,20 @@ echo ""
 echo ""
 
 echo "$SEPARATOR"
+echo "Single PARTIAL fetch-join example"
+echo "$SEPARATOR"
+time php single-partial-fetch-join.php
+echo ""
+echo ""
+
+echo "$SEPARATOR"
+echo "Single ARRAY fetch-join example"
+echo "$SEPARATOR"
+time php single-array-fetch-join.php
+echo ""
+echo ""
+
+echo "$SEPARATOR"
 echo "Single fetch-join example"
 echo "$SEPARATOR"
 time php single-fetch-join.php
